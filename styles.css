@@ -1,0 +1,548 @@
+/* ========================================
+   基本設定
+======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #F0F7F0;
+  --color-bg-white: #FFFFFF;
+  --color-accent: #5A9A6E;
+  --color-accent-light: #E8F5E9;
+  --color-accent-hover: #4A8A5E;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-border: #D0E0D0;
+  --font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", Meiryo, sans-serif;
+  --transition: all 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 50px;
+  color: var(--color-accent);
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-accent);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* ========================================
+   ヘッダー・ナビゲーション
+======================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 15px 20px;
+}
+
+.nav-logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-accent);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--color-accent);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: var(--transition);
+}
+
+/* ========================================
+   ヒーローセクション
+======================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px 60px;
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-accent-light) 100%);
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-accent);
+  margin-bottom: 15px;
+}
+
+.hero-title {
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+  margin-bottom: 30px;
+}
+
+.hero-catch {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(90, 154, 110, 0.3);
+}
+
+.hero-button:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(90, 154, 110, 0.4);
+}
+
+/* ========================================
+   プロフィールセクション
+======================================== */
+.profile {
+  background-color: var(--color-bg-white);
+}
+
+.profile-content {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.profile-image {
+  flex-shrink: 0;
+}
+
+.profile-placeholder {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-border) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+  font-size: 1rem;
+  border: 4px solid var(--color-accent-light);
+}
+
+.profile-text {
+  flex: 1;
+}
+
+.profile-text p {
+  margin-bottom: 1.5em;
+}
+
+.profile-heading {
+  font-size: 1.3rem;
+  color: var(--color-accent);
+  margin-top: 2em;
+  margin-bottom: 1em;
+  padding-left: 15px;
+  border-left: 4px solid var(--color-accent);
+}
+
+.profile-text strong {
+  color: var(--color-accent);
+}
+
+.highlight {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-accent);
+  background: linear-gradient(transparent 60%, var(--color-accent-light) 60%);
+  padding: 0 5px;
+}
+
+/* ========================================
+   できることセクション
+======================================== */
+.services {
+  background-color: var(--color-bg);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  background-color: var(--color-bg-white);
+  padding: 35px 30px;
+  border-radius: 15px;
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid var(--color-border);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(90, 154, 110, 0.15);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.service-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color-accent);
+  margin-bottom: 15px;
+}
+
+.service-description {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+/* ========================================
+   実績セクション
+======================================== */
+.works {
+  background-color: var(--color-bg-white);
+}
+
+.works-notice {
+  text-align: center;
+  padding: 40px;
+  background-color: var(--color-accent-light);
+  border-radius: 15px;
+  color: var(--color-text-light);
+}
+
+.works-notice p {
+  font-size: 1rem;
+}
+
+/* ========================================
+   お問い合わせセクション
+======================================== */
+.contact {
+  background-color: var(--color-bg);
+}
+
+.contact-content {
+  text-align: center;
+}
+
+.contact-content > p:first-child {
+  margin-bottom: 30px;
+  color: var(--color-text-light);
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 18px 50px;
+  background-color: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(90, 154, 110, 0.3);
+}
+
+.contact-button:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(90, 154, 110, 0.4);
+}
+
+.contact-email {
+  margin-top: 20px;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   フッター
+======================================== */
+.footer {
+  background-color: var(--color-accent);
+  color: white;
+  text-align: center;
+  padding: 25px 20px;
+}
+
+.footer p {
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   フェードインアニメーション
+======================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   レスポンシブ対応（768px以下）
+======================================== */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+
+  /* ナビゲーション */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    gap: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 15px 0;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* ヒーロー */
+  .hero {
+    padding: 100px 20px 50px;
+  }
+
+  .hero-name {
+    font-size: 1.8rem;
+  }
+
+  .hero-title {
+    font-size: 1rem;
+  }
+
+  .hero-catch {
+    font-size: 1.2rem;
+  }
+
+  .hero-button {
+    padding: 12px 30px;
+    font-size: 0.95rem;
+  }
+
+  /* プロフィール */
+  .profile-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-placeholder {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile-text {
+    text-align: left;
+  }
+
+  .profile-heading {
+    font-size: 1.1rem;
+  }
+
+  .highlight {
+    font-size: 1.2rem;
+  }
+
+  /* できること */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card {
+    padding: 30px 25px;
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+  }
+
+  /* お問い合わせ */
+  .contact-button {
+    padding: 15px 40px;
+    font-size: 1rem;
+  }
+}
+
+/* ========================================
+   480px以下（小さいスマホ）
+======================================== */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+
+  .hero-name {
+    font-size: 1.5rem;
+  }
+
+  .hero-catch {
+    font-size: 1.1rem;
+  }
+
+  .profile-placeholder {
+    width: 120px;
+    height: 120px;
+  }
+
+  .contact-button {
+    padding: 12px 30px;
+    font-size: 0.95rem;
+  }
+}
