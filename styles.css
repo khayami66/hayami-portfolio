@@ -150,22 +150,144 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 100px 20px 60px;
-  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-accent-light) 100%);
+  padding: 0 0 50px 0;
+  background: linear-gradient(145deg, #2d4a3e 0%, #1a3329 50%, #2d4a3e 100%);
+  position: relative;
+}
+
+/* 下の木枠（チョーク置き場） */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to top, #6B3510 0%, #8B4513 30%, #A0522D 50%, #8B4513 70%, #6B3510 100%);
+  box-shadow:
+    0 -4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+/* チョークと黒板消し */
+.chalk-tray {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  z-index: 11;
+}
+
+/* チョーク（白） */
+.chalk {
+  width: 60px;
+  height: 12px;
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 50%, #e0e0e0 100%);
+  border-radius: 3px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.chalk-short {
+  width: 35px;
+}
+
+/* 黒板消し */
+.eraser {
+  width: 80px;
+  height: 30px;
+  background: linear-gradient(to bottom, #2c2c2c 0%, #1a1a1a 100%);
+  border-radius: 3px;
+  position: relative;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.eraser::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(to bottom, #8B8B8B 0%, #696969 100%);
+  border-radius: 0 0 3px 3px;
+}
+
+/* 日付・日直 */
+.chalkboard-date {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  font-family: "Yomogi", cursive;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.chalkboard-date .date-item {
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+.chalkboard-date .date-item.month {
+  margin-bottom: 3em;
+}
+
+.chalkboard-date .date-item.duty {
+  margin-top: 15px;
+  font-size: 1.3rem;
+}
+
+/* マグネット */
+.magnets {
+  position: absolute;
+  bottom: 80px;
+  left: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 5;
+}
+
+.magnet {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  box-shadow:
+    2px 3px 5px rgba(0, 0, 0, 0.4),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.magnet-red {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.magnet-blue {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.magnet-yellow {
+  background: linear-gradient(135deg, #f1c40f 0%, #d4ac0d 100%);
+}
+
+.magnet-green {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
 }
 
 .chalkboard {
-  background: linear-gradient(145deg, #2d4a3e 0%, #1a3329 50%, #2d4a3e 100%);
-  border: 16px solid #8B4513;
-  border-radius: 8px;
-  padding: 50px 60px;
-  box-shadow:
-    inset 0 0 30px rgba(0, 0, 0, 0.3),
-    0 10px 30px rgba(0, 0, 0, 0.3),
-    0 0 0 4px #6B3510,
-    0 0 0 8px #8B4513;
+  width: 100%;
+  max-width: none;
+  padding: 80px 40px;
   position: relative;
-  max-width: 800px;
+  background: transparent;
+  border: none;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
 }
 
 .chalkboard::before {
@@ -184,58 +306,60 @@ body {
 .chalkboard-inner {
   position: relative;
   z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .hero-name {
   font-family: "Yomogi", cursive;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: normal;
-  color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 20px;
   text-shadow:
-    1px 1px 2px rgba(0, 0, 0, 0.3),
-    0 0 10px rgba(255, 255, 255, 0.1);
-  letter-spacing: 0.05em;
+    2px 2px 4px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.08em;
 }
 
 .hero-title {
   font-family: "Yomogi", cursive;
-  font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero-catch {
   font-family: "Yomogi", cursive;
-  font-size: 1.6rem;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 40px;
+  font-size: 2.2rem;
+  color: rgba(255, 255, 255, 0.98);
+  margin-bottom: 50px;
   line-height: 1.8;
   text-shadow:
-    1px 1px 2px rgba(0, 0, 0, 0.3),
-    0 0 15px rgba(255, 255, 255, 0.1);
+    2px 2px 4px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .hero-button {
   display: inline-block;
-  padding: 15px 40px;
+  padding: 18px 50px;
   background-color: rgba(255, 255, 255, 0.15);
   color: white;
   text-decoration: none;
   font-family: "Yomogi", cursive;
-  font-size: 1.1rem;
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  font-size: 1.3rem;
+  border: 3px solid rgba(255, 255, 255, 0.7);
   border-radius: 50px;
   transition: var(--transition);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero-button:hover {
   background-color: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.9);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* ========================================
@@ -509,15 +633,50 @@ body {
   }
 
   /* 黒板 */
+  .hero {
+    min-height: auto;
+    padding: 70px 0 35px 0;
+  }
+
+  .hero::after {
+    height: 30px;
+  }
+
   .chalkboard {
-    border-width: 10px;
-    padding: 30px 25px;
-    margin: 0 10px;
-    box-shadow:
-      inset 0 0 20px rgba(0, 0, 0, 0.3),
-      0 8px 20px rgba(0, 0, 0, 0.3),
-      0 0 0 3px #6B3510,
-      0 0 0 6px #8B4513;
+    padding: 40px 20px;
+  }
+
+  .chalk-tray {
+    gap: 15px;
+    bottom: 24px;
+  }
+
+  .chalk {
+    width: 50px;
+    height: 10px;
+  }
+
+  .chalk-short {
+    width: 28px;
+  }
+
+  .eraser {
+    width: 65px;
+    height: 25px;
+  }
+
+  .eraser::before {
+    height: 8px;
+  }
+
+  /* モバイルでは月日曜日日直を非表示 */
+  .chalkboard-date {
+    display: none;
+  }
+
+  /* モバイルではマグネットを非表示 */
+  .magnets {
+    display: none;
   }
 
   /* 蔦と花（タブレット以下では非表示） */
@@ -578,25 +737,29 @@ body {
 
   /* ヒーロー */
   .hero {
-    padding: 100px 10px 50px;
+    min-height: auto;
+    padding: 70px 0 35px 0;
   }
 
   .hero-name {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .hero-title {
     font-size: 1rem;
+    margin-bottom: 20px;
   }
 
   .hero-catch {
-    font-size: 1.15rem;
-    line-height: 1.7;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
   }
 
   .hero-button {
     padding: 12px 30px;
     font-size: 0.95rem;
+    margin-bottom: 10px;
   }
 
   /* プロフィール */
@@ -651,26 +814,60 @@ body {
     font-size: 15px;
   }
 
+  .hero {
+    padding: 60px 0 30px 0;
+  }
+
+  .hero::after {
+    height: 22px;
+  }
+
   .chalkboard {
-    border-width: 8px;
-    padding: 25px 20px;
-    box-shadow:
-      inset 0 0 15px rgba(0, 0, 0, 0.3),
-      0 6px 15px rgba(0, 0, 0, 0.3),
-      0 0 0 2px #6B3510,
-      0 0 0 4px #8B4513;
+    padding: 25px 15px;
+  }
+
+  .chalk-tray {
+    gap: 8px;
+    bottom: 16px;
+  }
+
+  .chalk {
+    width: 35px;
+    height: 7px;
+  }
+
+  .chalk-short {
+    width: 20px;
+  }
+
+  .eraser {
+    width: 50px;
+    height: 18px;
+  }
+
+  .eraser::before {
+    height: 5px;
   }
 
   .hero-name {
     font-size: 1.4rem;
+    margin-bottom: 8px;
   }
 
   .hero-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
   }
 
   .hero-catch {
-    font-size: 1.05rem;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-button {
+    padding: 10px 22px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
   }
 
   .profile-placeholder {
