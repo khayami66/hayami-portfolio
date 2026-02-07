@@ -142,7 +142,7 @@ body {
 }
 
 /* ========================================
-   ヒーローセクション
+   ヒーローセクション（黒板デザイン）
 ======================================== */
 .hero {
   min-height: 100vh;
@@ -154,47 +154,88 @@ body {
   background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-accent-light) 100%);
 }
 
-.hero-content {
-  max-width: 700px;
+.chalkboard {
+  background: linear-gradient(145deg, #2d4a3e 0%, #1a3329 50%, #2d4a3e 100%);
+  border: 16px solid #8B4513;
+  border-radius: 8px;
+  padding: 50px 60px;
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.3),
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 0 4px #6B3510,
+    0 0 0 8px #8B4513;
+  position: relative;
+  max-width: 800px;
+}
+
+.chalkboard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.chalkboard-inner {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-name {
+  font-family: "Yomogi", cursive;
   font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--color-accent);
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.92);
   margin-bottom: 15px;
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.3),
+    0 0 10px rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.05em;
 }
 
 .hero-title {
-  font-size: 1.2rem;
-  color: var(--color-text-light);
+  font-family: "Yomogi", cursive;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .hero-catch {
-  font-size: 1.5rem;
-  color: var(--color-text);
+  font-family: "Yomogi", cursive;
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: 40px;
-  line-height: 1.6;
+  line-height: 1.8;
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .hero-button {
   display: inline-block;
   padding: 15px 40px;
-  background-color: var(--color-accent);
+  background-color: rgba(255, 255, 255, 0.15);
   color: white;
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: bold;
+  font-family: "Yomogi", cursive;
+  font-size: 1.1rem;
+  border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 50px;
   transition: var(--transition);
-  box-shadow: 0 4px 15px rgba(90, 154, 110, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .hero-button:hover {
-  background-color: var(--color-accent-hover);
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(90, 154, 110, 0.4);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ========================================
@@ -202,6 +243,70 @@ body {
 ======================================== */
 .profile {
   background-color: var(--color-bg-white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 蔦の装飾 */
+.vine-decoration {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.vine-left {
+  left: 20px;
+}
+
+.vine-right {
+  right: 20px;
+}
+
+.vine-svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+.vine-stem {
+  stroke-linecap: round;
+}
+
+.vine-leaf {
+  opacity: 0.85;
+}
+
+/* 花の装飾 */
+.flower {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.vine-left .flower-1 {
+  top: 15%;
+  left: 15px;
+}
+
+.vine-left .flower-2 {
+  top: 55%;
+  left: 5px;
+}
+
+.vine-right .flower-3 {
+  top: 30%;
+  right: 15px;
+  left: auto;
+}
+
+.vine-right .flower-4 {
+  top: 75%;
+  right: 5px;
+  left: auto;
 }
 
 .profile-content {
@@ -403,6 +508,23 @@ body {
     margin-bottom: 40px;
   }
 
+  /* 黒板 */
+  .chalkboard {
+    border-width: 10px;
+    padding: 30px 25px;
+    margin: 0 10px;
+    box-shadow:
+      inset 0 0 20px rgba(0, 0, 0, 0.3),
+      0 8px 20px rgba(0, 0, 0, 0.3),
+      0 0 0 3px #6B3510,
+      0 0 0 6px #8B4513;
+  }
+
+  /* 蔦と花（タブレット以下では非表示） */
+  .vine-decoration {
+    display: none;
+  }
+
   /* ナビゲーション */
   .nav-toggle {
     display: flex;
@@ -456,11 +578,11 @@ body {
 
   /* ヒーロー */
   .hero {
-    padding: 100px 20px 50px;
+    padding: 100px 10px 50px;
   }
 
   .hero-name {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .hero-title {
@@ -468,7 +590,8 @@ body {
   }
 
   .hero-catch {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    line-height: 1.7;
   }
 
   .hero-button {
@@ -528,12 +651,26 @@ body {
     font-size: 15px;
   }
 
+  .chalkboard {
+    border-width: 8px;
+    padding: 25px 20px;
+    box-shadow:
+      inset 0 0 15px rgba(0, 0, 0, 0.3),
+      0 6px 15px rgba(0, 0, 0, 0.3),
+      0 0 0 2px #6B3510,
+      0 0 0 4px #8B4513;
+  }
+
   .hero-name {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .hero-title {
+    font-size: 0.9rem;
   }
 
   .hero-catch {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .profile-placeholder {

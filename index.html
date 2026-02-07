@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="「やさしいAI先生｜Hayami」は、忙しい先生や保護者に寄り添い、AIと自動化で毎日にゆとりを生み出すお手伝いをしています。">
   <title>やさしいAI先生｜Hayami｜忙しいあなたに寄り添うAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,16 +30,98 @@
 
   <!-- ヒーローセクション -->
   <section class="hero" id="hero">
-    <div class="hero-content">
-      <h1 class="hero-name">やさしいAI先生｜Hayami</h1>
-      <p class="hero-title">現場に寄り添うAIエンジニア</p>
-      <p class="hero-catch">忙しいあなたに、そっと寄り添うAI。</p>
-      <a href="#contact" class="hero-button">お問い合わせはこちら</a>
+    <div class="chalkboard">
+      <div class="chalkboard-inner">
+        <h1 class="hero-name">やさしいAI先生｜Hayami</h1>
+        <p class="hero-title">現場に寄り添うAIエンジニア</p>
+        <p class="hero-catch">忙しいあなたに、そっと寄り添うAI。</p>
+        <a href="#contact" class="hero-button">お問い合わせはこちら</a>
+      </div>
     </div>
   </section>
 
   <!-- プロフィールセクション -->
   <section class="profile section" id="profile">
+    <!-- 左側の蔦と花 -->
+    <div class="vine-decoration vine-left">
+      <svg viewBox="0 0 60 800" xmlns="http://www.w3.org/2000/svg" class="vine-svg">
+        <path class="vine-stem" d="M30 0 Q40 100 25 200 Q10 300 35 400 Q50 500 20 600 Q5 700 30 800" fill="none" stroke="#5A9A6E" stroke-width="3"/>
+        <path class="vine-leaf" d="M25 80 Q15 70 20 55 Q30 60 35 75 Q30 85 25 80" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M35 160 Q45 150 50 135 Q40 130 30 145 Q30 155 35 160" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M20 280 Q10 270 5 255 Q15 250 25 265 Q25 275 20 280" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M40 380 Q50 370 55 355 Q45 350 35 365 Q35 375 40 380" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M15 480 Q5 470 0 455 Q10 450 20 465 Q20 475 15 480" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M35 580 Q45 570 50 555 Q40 550 30 565 Q30 575 35 580" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M20 680 Q10 670 5 655 Q15 650 25 665 Q25 675 20 680" fill="#6BAF7E"/>
+      </svg>
+      <div class="flower flower-1 fade-in">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="5" fill="#FFD700"/>
+          <ellipse cx="20" cy="8" rx="5" ry="8" fill="white"/>
+          <ellipse cx="20" cy="32" rx="5" ry="8" fill="white"/>
+          <ellipse cx="8" cy="20" rx="8" ry="5" fill="white"/>
+          <ellipse cx="32" cy="20" rx="8" ry="5" fill="white"/>
+          <ellipse cx="11" cy="11" rx="5" ry="7" fill="white" transform="rotate(-45 11 11)"/>
+          <ellipse cx="29" cy="11" rx="5" ry="7" fill="white" transform="rotate(45 29 11)"/>
+          <ellipse cx="11" cy="29" rx="5" ry="7" fill="white" transform="rotate(45 11 29)"/>
+          <ellipse cx="29" cy="29" rx="5" ry="7" fill="white" transform="rotate(-45 29 29)"/>
+        </svg>
+      </div>
+      <div class="flower flower-2 fade-in">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="5" fill="#FFD700"/>
+          <ellipse cx="20" cy="8" rx="5" ry="8" fill="white"/>
+          <ellipse cx="20" cy="32" rx="5" ry="8" fill="white"/>
+          <ellipse cx="8" cy="20" rx="8" ry="5" fill="white"/>
+          <ellipse cx="32" cy="20" rx="8" ry="5" fill="white"/>
+          <ellipse cx="11" cy="11" rx="5" ry="7" fill="white" transform="rotate(-45 11 11)"/>
+          <ellipse cx="29" cy="11" rx="5" ry="7" fill="white" transform="rotate(45 29 11)"/>
+          <ellipse cx="11" cy="29" rx="5" ry="7" fill="white" transform="rotate(45 11 29)"/>
+          <ellipse cx="29" cy="29" rx="5" ry="7" fill="white" transform="rotate(-45 29 29)"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 右側の蔦と花 -->
+    <div class="vine-decoration vine-right">
+      <svg viewBox="0 0 60 800" xmlns="http://www.w3.org/2000/svg" class="vine-svg">
+        <path class="vine-stem" d="M30 0 Q20 100 35 200 Q50 300 25 400 Q10 500 40 600 Q55 700 30 800" fill="none" stroke="#5A9A6E" stroke-width="3"/>
+        <path class="vine-leaf" d="M35 80 Q45 70 40 55 Q30 60 25 75 Q30 85 35 80" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M25 160 Q15 150 10 135 Q20 130 30 145 Q30 155 25 160" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M40 280 Q50 270 55 255 Q45 250 35 265 Q35 275 40 280" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M20 380 Q10 370 5 355 Q15 350 25 365 Q25 375 20 380" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M45 480 Q55 470 60 455 Q50 450 40 465 Q40 475 45 480" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M25 580 Q15 570 10 555 Q20 550 30 565 Q30 575 25 580" fill="#6BAF7E"/>
+        <path class="vine-leaf" d="M40 680 Q50 670 55 655 Q45 650 35 665 Q35 675 40 680" fill="#6BAF7E"/>
+      </svg>
+      <div class="flower flower-3 fade-in">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="5" fill="#FFD700"/>
+          <ellipse cx="20" cy="8" rx="5" ry="8" fill="white"/>
+          <ellipse cx="20" cy="32" rx="5" ry="8" fill="white"/>
+          <ellipse cx="8" cy="20" rx="8" ry="5" fill="white"/>
+          <ellipse cx="32" cy="20" rx="8" ry="5" fill="white"/>
+          <ellipse cx="11" cy="11" rx="5" ry="7" fill="white" transform="rotate(-45 11 11)"/>
+          <ellipse cx="29" cy="11" rx="5" ry="7" fill="white" transform="rotate(45 29 11)"/>
+          <ellipse cx="11" cy="29" rx="5" ry="7" fill="white" transform="rotate(45 11 29)"/>
+          <ellipse cx="29" cy="29" rx="5" ry="7" fill="white" transform="rotate(-45 29 29)"/>
+        </svg>
+      </div>
+      <div class="flower flower-4 fade-in">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="5" fill="#FFD700"/>
+          <ellipse cx="20" cy="8" rx="5" ry="8" fill="white"/>
+          <ellipse cx="20" cy="32" rx="5" ry="8" fill="white"/>
+          <ellipse cx="8" cy="20" rx="8" ry="5" fill="white"/>
+          <ellipse cx="32" cy="20" rx="8" ry="5" fill="white"/>
+          <ellipse cx="11" cy="11" rx="5" ry="7" fill="white" transform="rotate(-45 11 11)"/>
+          <ellipse cx="29" cy="11" rx="5" ry="7" fill="white" transform="rotate(45 29 11)"/>
+          <ellipse cx="11" cy="29" rx="5" ry="7" fill="white" transform="rotate(45 11 29)"/>
+          <ellipse cx="29" cy="29" rx="5" ry="7" fill="white" transform="rotate(-45 29 29)"/>
+        </svg>
+      </div>
+    </div>
+
     <div class="container">
       <h2 class="section-title fade-in">プロフィール</h2>
 
