@@ -395,6 +395,15 @@ body {
   opacity: 0.7;
 }
 
+.vine-svg.fade-in {
+  transform: none;
+  transition: opacity 1.5s ease;
+}
+
+.vine-svg.fade-in.visible {
+  opacity: 0.7;
+}
+
 .vine-stem {
   stroke-linecap: round;
 }
@@ -406,30 +415,30 @@ body {
 /* 花の装飾 */
 .flower {
   position: absolute;
-  width: 35px;
-  height: 35px;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  width: 175px;
+  height: 175px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
 }
 
 .vine-left .flower-1 {
-  top: 15%;
-  left: 15px;
+  top: 12%;
+  left: 30px;
 }
 
 .vine-left .flower-2 {
-  top: 55%;
-  left: 5px;
+  top: 52%;
+  left: 20px;
 }
 
 .vine-right .flower-3 {
-  top: 30%;
-  right: 15px;
+  top: 28%;
+  right: 80px;
   left: auto;
 }
 
 .vine-right .flower-4 {
-  top: 75%;
-  right: 5px;
+  top: 72%;
+  right: 70px;
   left: auto;
 }
 
@@ -506,6 +515,8 @@ body {
   text-align: center;
   transition: var(--transition);
   border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card:hover {
@@ -529,6 +540,47 @@ body {
   font-size: 0.95rem;
   color: var(--color-text-light);
   line-height: 1.7;
+  flex-grow: 1;
+}
+
+/* カード内の実例（実績への導線） */
+.service-example {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--color-border);
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: center;
+  margin-top: 14px;
+  padding: 9px 22px;
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: var(--transition);
+}
+
+.service-link::after {
+  content: "→";
+  transition: var(--transition);
+}
+
+.service-link:hover {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.service-link:hover::after {
+  transform: translateX(3px);
 }
 
 /* ========================================
