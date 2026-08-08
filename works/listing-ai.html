@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="中古アパレル販売の出品業務をAI化した実例。工程ごとの処理能力を実測し、最も細い1工程にだけAIを導入。2026年7月より本番稼働中。">
+  <title>出品業務のAI化 ― 実装と運用の実例｜やさしいAI先生｜Hayami</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../work-detail.css">
+</head>
+<body>
+  <!-- ヘッダーナビゲーション -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <a class="nav-logo" href="../index.html">やさしいAI先生</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#profile">プロフィール</a></li>
+        <li><a href="../index.html#services">できること</a></li>
+        <li><a href="../index.html#contact">お問い合わせ</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="work-page">
+    <!-- パンくず -->
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="../index.html">ホーム</a>
+      <span>/</span>
+      <a href="../index.html#services">できること</a>
+      <span>/</span>
+      出品業務のAI化
+    </nav>
+
+    <!-- ページ見出し -->
+    <section class="work-hero">
+      <div class="work-container">
+        <div class="work-label fade-in">業務の自動化 ― 実例</div>
+        <h1 class="work-title fade-in">出品業務のAI化<br>― 実装と運用の実例</h1>
+        <p class="work-lead fade-in">中古アパレル販売の業務システム。「AIを入れる」より先に工程ごとの処理能力を実測し、いちばん細い1工程にだけAIを導入しました。</p>
+        <p class="fade-in"><span class="work-status">2026年7月より本番稼働・毎日使用中</span></p>
+
+        <dl class="work-summary fade-in">
+          <div class="work-summary-item">
+            <dt>担当</dt>
+            <dd>個人で設計・構築<small>要件定義から運用まで</small></dd>
+          </div>
+          <div class="work-summary-item">
+            <dt>効果</dt>
+            <dd>1点あたり約10分の作業をゼロから書く必要がなくなった</dd>
+          </div>
+          <div class="work-summary-item">
+            <dt>運用コスト</dt>
+            <dd>生成にかかる費用は月あたり数百円程度</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 01 工程の処理能力を測った -->
+    <section class="work-section">
+      <div class="work-container">
+        <h2 class="work-section-title fade-in">
+          <span class="work-section-num">01</span>
+          つくる前に、工程の処理能力を測った
+        </h2>
+        <p class="work-section-desc fade-in">「AIを入れる」より先に、業務を工程に分解して<strong>それぞれが月に何点さばけるか</strong>を実測しました。</p>
+
+        <div class="table-scroll fade-in">
+          <table class="work-table">
+            <thead>
+              <tr>
+                <th scope="col">工程</th>
+                <th scope="col" class="num">月の処理上限</th>
+                <th scope="col">判定</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">仕入れ</th>
+                <td class="num">60〜100点</td>
+                <td>余裕あり</td>
+              </tr>
+              <tr>
+                <th scope="row">クリーニング・撮影・採寸</th>
+                <td class="num">約90点</td>
+                <td>ほぼ均衡</td>
+              </tr>
+              <tr class="is-bottleneck">
+                <th scope="row">相場リサーチ・商品名・説明文</th>
+                <td class="num">約65点</td>
+                <td><span class="bottleneck-tag">最も細い ← ここだけを外した</span></td>
+              </tr>
+              <tr>
+                <th scope="row">出品操作</th>
+                <td class="num">65〜90点</td>
+                <td>均衡</td>
+              </tr>
+              <tr>
+                <th scope="row">梱包・発送</th>
+                <td class="num">制約にならず</td>
+                <td>余裕あり</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="work-note fade-in">1点あたり約10分。他の工程に余力があっても、<strong>最も細い工程の処理量が全体の上限になる</strong>ため、AIはこの1工程にだけ導入しました。</p>
+      </div>
+    </section>
+
+    <!-- 02 実際の流れ -->
+    <section class="work-section">
+      <div class="work-container">
+        <h2 class="work-section-title fade-in">
+          <span class="work-section-num">02</span>
+          実際の流れ
+        </h2>
+        <p class="work-section-desc fade-in">撮影済みの写真を入れてから、確認して保存するまで。</p>
+
+        <div class="flow fade-in">
+          <div class="flow-step is-input">
+            <div class="flow-step-label">入力</div>
+            <div class="flow-step-title">商品画像</div>
+            <div class="flow-step-desc">撮影済みの<br>写真を入れる</div>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">▶</div>
+          <div class="flow-step">
+            <div class="flow-step-label">AI ①</div>
+            <div class="flow-step-title">特徴抽出</div>
+            <div class="flow-step-desc">色・素材・柄・<br>タグの文字を読む</div>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">▶</div>
+          <div class="flow-step">
+            <div class="flow-step-label">AI ②</div>
+            <div class="flow-step-title">名称照合</div>
+            <div class="flow-step-desc">ブランド辞書<br>183件と突合</div>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">▶</div>
+          <div class="flow-step">
+            <div class="flow-step-label">AI ③</div>
+            <div class="flow-step-title">文章生成</div>
+            <div class="flow-step-desc">商品名と<br>説明文の下書き</div>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">▶</div>
+          <div class="flow-step is-human">
+            <div class="flow-step-label">人 ④</div>
+            <div class="flow-step-title">人が確認</div>
+            <div class="flow-step-desc">修正して<br>保存・出品</div>
+          </div>
+        </div>
+
+        <p class="work-note fade-in">保存を押すと、<strong>管理台帳・採寸表・出品ログの3か所に同じ管理番号で同時に書き込まれます。</strong>これまで手作業だった転記と採番がなくなり、記録漏れによる集計のずれも起きなくなりました。</p>
+        <p class="work-note fade-in">蓄積されたデータは、次の段階（販売価格の提案）の材料としてそのまま使えるよう、最初から同じ形式で貯めています。</p>
+      </div>
+    </section>
+
+    <!-- 03 実際の出力例 -->
+    <section class="work-section">
+      <div class="work-container">
+        <h2 class="work-section-title fade-in">
+          <span class="work-section-num">03</span>
+          実際の出力例
+        </h2>
+        <p class="work-section-desc fade-in">商品の写真を入れてから、この文章が出てくるまで十数秒。</p>
+
+        <div class="io-grid fade-in">
+          <div class="io-input">
+            <div class="io-heading">入力：撮影済みの商品写真</div>
+            <img class="io-photo" src="../assets/works/listing-ai/hoodie.jpg" alt="入力に使った商品写真（黒いadidasのパーカー）" width="900" height="900" loading="lazy">
+            <p class="io-caption">
+              商品ジャンルを選び、この写真をアップロードするだけ。採寸値（着丈・身幅など）を入れておくと、説明文の【実寸】欄に自動で反映されます。
+            </p>
+            <p class="io-caption">
+              右の文章は、この1枚から生成されたものです。ブランド名・色・ロゴの位置・カンガルーポケットといった特徴は、すべて画像から読み取っています。
+            </p>
+          </div>
+
+          <div class="io-outputs">
+            <div class="io-output">
+              <div class="io-heading">出力：商品名（35〜40字）</div>
+              <div class="io-box">
+                <p class="io-product-name">adidas パーカー 胸ロゴ 袖ロゴ カンガルーポケット ルーズ ブラック M</p>
+              </div>
+            </div>
+
+            <div class="io-output">
+              <div class="io-heading">出力：商品説明</div>
+              <div class="io-box">
+                <div class="io-description">ご覧いただきありがとうございます。
+
+↓他の商品はこちら
+#ショップ名 #ショップ名_ニットトレーナー
+
+【商品について】
+☑︎ 普段使いはもちろん、ストリートやカジュアルなシーンで活躍するアディダスパーカー。
+☑︎ デニムやスウェットパンツと合わせてリラックス感のある着こなしや、スカートで甘辛ミックスも可愛い。
+☑︎ フード付きで暖かく、カンガルーポケットが機能的。幅広いスタイルにマッチする汎用性の高さが魅力です。
+
+【カラー】
+ブラック
+
+【状態】
+・目立った傷や汚れのないお品物です。
+・古着のため多少の使用感はございます。
+
+【実寸】
+着丈：70cm
+身幅：50cm
+
+※素人採寸のため、多少の誤差はご了承ください。
+※詳細採寸や気になる点は、購入前にお気軽にコメントください。
+※ご購入前にプロフィールもあわせてご確認ください。
+
+#アディダス #スウェット #フーディー #トレーナー #ストリート #カジュアル #スポーツMIX #Y2K #古着MIX #メンズ
+
+70's 80's 90's 00's
+デザイン 個性的 色落ち パッチワーク
+スポーツMIX 加工 ダメージ かすれ ワッフル ロゴ
+編み込み レースアップ ギミック ブリーチ
+ミリタリー クラッシュ アメカジ グランジ
+パンク Y2K モード アーカイブ vintage archive
+好きな方におすすめです。
+
+管理番号：</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-callout fade-in">
+          これまでは1点あたり約10分かけて書いていた部分です。<br>
+          人はこの下書きを<strong>確認して直すだけ</strong>になり、ゼロから書く作業がなくなりました。
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 構成 -->
+    <section class="work-section">
+      <div class="work-container">
+        <h2 class="work-section-title fade-in">
+          <span class="work-section-num">04</span>
+          構成
+        </h2>
+        <p class="work-section-desc fade-in">個人で設計・構築しています。</p>
+
+        <dl class="stack-list fade-in">
+          <div class="stack-item">
+            <dt>画面</dt>
+            <dd>Next.js（Vercel）<small>iPad・スマートフォンから利用</small></dd>
+          </div>
+          <div class="stack-item">
+            <dt>処理</dt>
+            <dd>FastAPI（Google Cloud Run）</dd>
+          </div>
+          <div class="stack-item">
+            <dt>記録</dt>
+            <dd>Google スプレッドシート ＋ Apps Script</dd>
+          </div>
+          <div class="stack-item">
+            <dt>画像認識・文章生成</dt>
+            <dd>Gemini 2.5 Flash</dd>
+          </div>
+        </dl>
+
+        <p class="work-note fade-in">生成にかかる費用は運用規模に対して月あたり数百円程度。特定の生成AIに依存しないよう、<strong>モデルの差し替え箇所は1ファイルに集約</strong>しています。</p>
+      </div>
+    </section>
+
+    <!-- 05 AIに任せたこと／任せなかったこと -->
+    <section class="work-section">
+      <div class="work-container">
+        <h2 class="work-section-title fade-in">
+          <span class="work-section-num">05</span>
+          AIに任せたこと／任せなかったこと
+        </h2>
+        <p class="work-section-desc fade-in">設計上いちばん時間をかけたのは、この線引きの判断です。</p>
+
+        <h3 class="io-heading fade-in" style="margin-bottom:14px;">AIに任せたこと</h3>
+        <ul class="check-list fade-in">
+          <li>商品画像からの特徴抽出（色・素材・柄・ディテール・タグの文字の読み取り）</li>
+          <li>商品名（35〜40字）と商品説明の下書き作成</li>
+          <li>過去の販売実績にもとづく価格の目安の提示</li>
+        </ul>
+
+        <h3 class="io-heading fade-in" style="margin:32px 0 14px;">意図的に人に残したこと</h3>
+        <div class="table-scroll fade-in">
+          <table class="work-table">
+            <thead>
+              <tr>
+                <th scope="col">人に残した判断</th>
+                <th scope="col">理由</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">出品操作そのもの</th>
+                <td>プラットフォームの規約で、第三者やツールによる代理出品・自動アクセスが禁止されているため。AIは下書きまでと決めています</td>
+              </tr>
+              <tr>
+                <th scope="row">ブランド名の確定</th>
+                <td>AIが実在しないブランド名を「確信度100%」で返す事例を実測で確認。確信度60%未満は採用せず、辞書にない名称は画面に「要確認」と表示して人の判断を通します</td>
+              </tr>
+              <tr>
+                <th scope="row">商品名にサイズを入れるか</th>
+                <td>「読み取れたか」ではなく「売れるか」の判断であり、相場観が要るため。過去の販売実績では、サイズを含む商品名は全体の23%にとどまりました</td>
+              </tr>
+              <tr>
+                <th scope="row">販売価格の決定</th>
+                <td>目安は自動で出しますが、決めるのは人。相場は状態や時期で動くため</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="work-callout fade-in">
+          精度が足りないから人を残したのではなく、<strong>間違えたときの損失が大きい箇所を選んで、人の確認を通す設計</strong>にしています。
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 他の業務に展開するときの考え方 -->
+    <section class="work-section">
+      <div class="work-container">
+        <h2 class="work-section-title fade-in">
+          <span class="work-section-num">06</span>
+          他の業務に展開するときの考え方
+        </h2>
+        <p class="work-section-desc fade-in">この進め方は、出品業務に限らず同じ形で使えます。</p>
+
+        <ol class="step-list fade-in">
+          <li><strong>工程ごとの処理能力を実測する</strong><br><small>感覚ではなく、月に何件さばけるかを数える</small></li>
+          <li><strong>最も細い工程を1つだけ特定する</strong></li>
+          <li><strong>そこにだけAIを入れる</strong><br><small>全部を置き換えない。他の工程は余力があるので効果が出ない</small></li>
+          <li><strong>間違えたときの損失が大きい判断は、人の確認を通す</strong>設計にする</li>
+        </ol>
+
+        <p class="work-note fade-in">経験上、AIそのものを組むより、<strong>どこに入れるかを決める作業のほうが時間がかかります。</strong>導入して効果が出ないケースの多くは、そもそも細くない工程に入れてしまっている場合です。</p>
+      </div>
+    </section>
+
+    <!-- 07 デモ動画（YouTube 限定公開 / bU-T4-CV3Q0） -->
+    <section class="work-section">
+      <div class="work-container">
+        <h2 class="work-section-title fade-in">
+          <span class="work-section-num">07</span>
+          動かしているところ
+        </h2>
+        <p class="work-section-desc fade-in">写真をアップロードしてから、商品名と説明文が出てくるまでの実際の操作です（約1分・音声なし）。</p>
+        <div class="video-frame fade-in">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/bU-T4-CV3Q0"
+            title="出品業務のAI化｜商品写真1枚から商品名と説明文を生成するデモ"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            loading="lazy"></iframe>
+        </div>
+        <p class="work-note fade-in">iPadから操作しています。1点あたり約10分かけていた工程が、この操作に置き換わりました。</p>
+      </div>
+    </section>
+
+    <!-- ページ下部のアクション -->
+    <section class="work-actions">
+      <div class="work-container">
+        <div class="work-actions-inner fade-in">
+          <a class="btn-primary" href="../index.html#contact">✉️ この仕組みについて相談する</a>
+          <a class="btn-secondary" href="../assets/works/listing-ai/listing-ai.pdf" target="_blank" rel="noopener">📄 資料をPDFで見る</a>
+        </div>
+        <p class="work-actions-note fade-in">「うちの業務にも使えるかな？」という段階のご相談も歓迎です。</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 やさしいAI先生｜Hayami</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
